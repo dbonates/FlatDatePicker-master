@@ -40,8 +40,8 @@
 #define kFlatDatePickerFontLabelSelected [UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0]
 
 // Constants icons
-#define kFlatDatePickerIconCancel @"FlatDatePicker-Icon-Close.png"
-#define kFlatDatePickerIconValid @"FlatDatePicker-Icon-Check.png"
+#define kFlatDatePickerIconCancel @"Icon-Close.png"
+#define kFlatDatePickerIconValid @"Icon-Check.png"
 
 // Constants :
 
