@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FlatDatePicker.h"
+#import "FlatListPicker.h"
 
 @interface ViewController : UIViewController <FlatDatePickerDelegate>
 
-@property (nonatomic, strong) FlatDatePicker *flatDatePicker;
+@property (nonatomic, strong) FlatListPicker *flatDatePicker;
 @property (weak, nonatomic) IBOutlet UILabel *labelDateSelected;
 
 - (IBAction)actionOpen:(id)sender;

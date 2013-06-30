@@ -18,7 +18,7 @@
 		6B2C83711751107700BC04FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2C83701751107700BC04FB /* Default-568h@2x.png */; };
 		6B2C83741751107700BC04FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C83731751107700BC04FB /* ViewController.m */; };
 		6B2C83771751107700BC04FB /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B2C83751751107700BC04FB /* ViewController.xib */; };
-		6B2C83801751114700BC04FB /* FlatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C837F1751114700BC04FB /* FlatDatePicker.m */; };
+		6B2C83801751114700BC04FB /* FlatListPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C837F1751114700BC04FB /* FlatListPicker.m */; };
 		6BB019971751257B00643F6D /* FlatDatePicker-Icon-Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB019931751257B00643F6D /* FlatDatePicker-Icon-Close.png */; };
 		6BB019981751257B00643F6D /* FlatDatePicker-Icon-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB019941751257B00643F6D /* FlatDatePicker-Icon-Check.png */; };
 		6BB019991751257B00643F6D /* FlatDatePicker-Icon-Check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB019951751257B00643F6D /* FlatDatePicker-Icon-Check@2x.png */; };
@@ -26,14 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6B2C83571751107700BC04FB /* FlatDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B2C83571751107700BC04FB /* FlatListPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatListPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2C835A1751107700BC04FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6B2C835C1751107700BC04FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6B2C835E1751107700BC04FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6B2C83621751107700BC04FB /* FlatDatePicker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlatDatePicker-Info.plist"; sourceTree = "<group>"; };
+		6B2C83621751107700BC04FB /* FlatListPicker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlatListPicker-Info.plist"; sourceTree = "<group>"; };
 		6B2C83641751107700BC04FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B2C83661751107700BC04FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6B2C83681751107700BC04FB /* FlatDatePicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatDatePicker-Prefix.pch"; sourceTree = "<group>"; };
+		6B2C83681751107700BC04FB /* FlatListPicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatListPicker-Prefix.pch"; sourceTree = "<group>"; };
 		6B2C83691751107700BC04FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6B2C836A1751107700BC04FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6B2C836C1751107700BC04FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -42,8 +42,8 @@
 		6B2C83721751107700BC04FB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6B2C83731751107700BC04FB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6B2C83761751107700BC04FB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		6B2C837E1751114700BC04FB /* FlatDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatDatePicker.h; sourceTree = "<group>"; };
-		6B2C837F1751114700BC04FB /* FlatDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDatePicker.m; sourceTree = "<group>"; };
+		6B2C837E1751114700BC04FB /* FlatListPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatListPicker.h; sourceTree = "<group>"; };
+		6B2C837F1751114700BC04FB /* FlatListPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatListPicker.m; sourceTree = "<group>"; };
 		6BB019931751257B00643F6D /* FlatDatePicker-Icon-Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Close.png"; sourceTree = "<group>"; };
 		6BB019941751257B00643F6D /* FlatDatePicker-Icon-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Check.png"; sourceTree = "<group>"; };
 		6BB019951751257B00643F6D /* FlatDatePicker-Icon-Check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Check@2x.png"; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		6B2C834E1751107700BC04FB = {
 			isa = PBXGroup;
 			children = (
-				6B2C83601751107700BC04FB /* FlatDatePicker */,
+				6B2C83601751107700BC04FB /* FlatListPicker */,
 				6B2C83591751107700BC04FB /* Frameworks */,
 				6B2C83581751107700BC04FB /* Products */,
 			);
@@ -76,7 +76,7 @@
 		6B2C83581751107700BC04FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B2C83571751107700BC04FB /* FlatDatePicker.app */,
+				6B2C83571751107700BC04FB /* FlatListPicker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,10 +91,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6B2C83601751107700BC04FB /* FlatDatePicker */ = {
+		6B2C83601751107700BC04FB /* FlatListPicker */ = {
 			isa = PBXGroup;
 			children = (
-				6B2C837D1751111B00BC04FB /* FlatDatePicker */,
+				6B2C837D1751111B00BC04FB /* FlatListPicker */,
 				6B2C83691751107700BC04FB /* AppDelegate.h */,
 				6B2C836A1751107700BC04FB /* AppDelegate.m */,
 				6B2C83721751107700BC04FB /* ViewController.h */,
@@ -102,16 +102,17 @@
 				6B2C83751751107700BC04FB /* ViewController.xib */,
 				6B2C83611751107700BC04FB /* Supporting Files */,
 			);
+			name = FlatListPicker;
 			path = FlatDatePicker;
 			sourceTree = "<group>";
 		};
 		6B2C83611751107700BC04FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6B2C83621751107700BC04FB /* FlatDatePicker-Info.plist */,
+				6B2C83621751107700BC04FB /* FlatListPicker-Info.plist */,
 				6B2C83631751107700BC04FB /* InfoPlist.strings */,
 				6B2C83661751107700BC04FB /* main.m */,
-				6B2C83681751107700BC04FB /* FlatDatePicker-Prefix.pch */,
+				6B2C83681751107700BC04FB /* FlatListPicker-Prefix.pch */,
 				6B2C836C1751107700BC04FB /* Default.png */,
 				6B2C836E1751107700BC04FB /* Default@2x.png */,
 				6B2C83701751107700BC04FB /* Default-568h@2x.png */,
@@ -119,25 +120,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6B2C837D1751111B00BC04FB /* FlatDatePicker */ = {
+		6B2C837D1751111B00BC04FB /* FlatListPicker */ = {
 			isa = PBXGroup;
 			children = (
-				6B2C837E1751114700BC04FB /* FlatDatePicker.h */,
-				6B2C837F1751114700BC04FB /* FlatDatePicker.m */,
+				6B2C837E1751114700BC04FB /* FlatListPicker.h */,
+				6B2C837F1751114700BC04FB /* FlatListPicker.m */,
 				6BB019931751257B00643F6D /* FlatDatePicker-Icon-Close.png */,
 				6BB019941751257B00643F6D /* FlatDatePicker-Icon-Check.png */,
 				6BB019951751257B00643F6D /* FlatDatePicker-Icon-Check@2x.png */,
 				6BB019961751257B00643F6D /* FlatDatePicker-Icon-Close@2x.png */,
 			);
+			name = FlatListPicker;
 			path = FlatDatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6B2C83561751107700BC04FB /* FlatDatePicker */ = {
+		6B2C83561751107700BC04FB /* FlatListPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B2C837A1751107700BC04FB /* Build configuration list for PBXNativeTarget "FlatDatePicker" */;
+			buildConfigurationList = 6B2C837A1751107700BC04FB /* Build configuration list for PBXNativeTarget "FlatListPicker" */;
 			buildPhases = (
 				6B2C83531751107700BC04FB /* Sources */,
 				6B2C83541751107700BC04FB /* Frameworks */,
@@ -147,9 +149,9 @@
 			);
 			dependencies = (
 			);
-			name = FlatDatePicker;
+			name = FlatListPicker;
 			productName = FlatDatePicker;
-			productReference = 6B2C83571751107700BC04FB /* FlatDatePicker.app */;
+			productReference = 6B2C83571751107700BC04FB /* FlatListPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +163,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Christopher Ney";
 			};
-			buildConfigurationList = 6B2C83521751107700BC04FB /* Build configuration list for PBXProject "FlatDatePicker" */;
+			buildConfigurationList = 6B2C83521751107700BC04FB /* Build configuration list for PBXProject "FlatListPicker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -173,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6B2C83561751107700BC04FB /* FlatDatePicker */,
+				6B2C83561751107700BC04FB /* FlatListPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -205,7 +207,7 @@
 				6B2C83671751107700BC04FB /* main.m in Sources */,
 				6B2C836B1751107700BC04FB /* AppDelegate.m in Sources */,
 				6B2C83741751107700BC04FB /* ViewController.m in Sources */,
-				6B2C83801751114700BC04FB /* FlatDatePicker.m in Sources */,
+				6B2C83801751114700BC04FB /* FlatListPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +293,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FlatDatePicker/FlatDatePicker-Prefix.pch";
-				INFOPLIST_FILE = "FlatDatePicker/FlatDatePicker-Info.plist";
+				GCC_PREFIX_HEADER = "FlatDatePicker/FlatListPicker-Prefix.pch";
+				INFOPLIST_FILE = "FlatDatePicker/FlatListPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlatListPicker;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -303,10 +305,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FlatDatePicker/FlatDatePicker-Prefix.pch";
-				INFOPLIST_FILE = "FlatDatePicker/FlatDatePicker-Info.plist";
+				GCC_PREFIX_HEADER = "FlatDatePicker/FlatListPicker-Prefix.pch";
+				INFOPLIST_FILE = "FlatDatePicker/FlatListPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlatListPicker;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -314,7 +316,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6B2C83521751107700BC04FB /* Build configuration list for PBXProject "FlatDatePicker" */ = {
+		6B2C83521751107700BC04FB /* Build configuration list for PBXProject "FlatListPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B2C83781751107700BC04FB /* Debug */,
@@ -323,7 +325,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B2C837A1751107700BC04FB /* Build configuration list for PBXNativeTarget "FlatDatePicker" */ = {
+		6B2C837A1751107700BC04FB /* Build configuration list for PBXNativeTarget "FlatListPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B2C837B1751107700BC04FB /* Debug */,
