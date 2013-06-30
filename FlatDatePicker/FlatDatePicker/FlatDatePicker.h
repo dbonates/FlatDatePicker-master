@@ -13,6 +13,7 @@
 @protocol FlatDatePickerDelegate<NSObject>
 @optional
 - (void)flatDatePicker:(FlatDatePicker*)datePicker dateDidChange:(NSDate*)date;
+- (void)flatDatePicker:(FlatDatePicker*)datePicker cityDidChange:(NSString*)city;
 - (void)flatDatePicker:(FlatDatePicker*)datePicker didCancel:(UIButton*)sender;
 - (void)flatDatePicker:(FlatDatePicker*)datePicker didValid:(UIButton*)sender date:(NSDate*)date;
 @end
@@ -20,7 +21,9 @@
 typedef NS_ENUM(NSInteger, FlatDatePickerMode) {
     FlatDatePickerModeTime,           // Displays hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. 6 | 53 | PM)
     FlatDatePickerModeDate,           // Displays month, day, and year depending on the locale setting (e.g. November | 15 | 2007)
-    FlatDatePickerModeDateAndTime    // Displays date, hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. Wed Nov 15 | 6 | 53 | PM)
+    FlatDatePickerModeDateAndTime,    // Displays date, hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. Wed Nov 15 | 6 | 53 | PM)
+    
+    FlatDatePickerModeCity
 };
 
 @interface FlatDatePicker : UIControl <UIScrollViewDelegate> {
@@ -101,6 +104,10 @@ typedef NS_ENUM(NSInteger, FlatDatePickerMode) {
     int _selectedMinute;
     int _selectedSecond;
     
+    
+    // City selected
+    int _selectedCity;
+    
     // First init flag :
     BOOL _isInitialized;
 }
@@ -118,9 +125,12 @@ typedef NS_ENUM(NSInteger, FlatDatePickerMode) {
 
 @property(nonatomic,readonly) BOOL        isOpen;                 // read only property, indicate in datepicker is open.
 
+@property (nonatomic, strong) NSArray *cidades;
+
 #pragma mark - Initializers
 
 - (id)initWithParentView:(UIView*)parentView;
+- (id)initWithParentView:(UIView*)parentView andCities:(NSArray *)cities;
 
 #pragma mark - Show and Dismiss
 

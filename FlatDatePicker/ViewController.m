@@ -21,11 +21,12 @@
     
     self.title = @"FlatDatePicker";
     
-    self.flatDatePicker = [[FlatDatePicker alloc] initWithParentView:self.view];
+    //self.flatDatePicker = [[FlatDatePicker alloc] initWithParentView:self.view];
+    self.flatDatePicker = [[FlatDatePicker alloc] initWithParentView:self.view andCities:@[@"Rio de Janeiro", @"Búzios", @"Angra dos Reis", @"Paraty", @"Petrópolis", @"Tiradentes", @"São Paulo"]];
     self.flatDatePicker.delegate = self;
-    self.flatDatePicker.title = @"Select your birthday";
+    self.flatDatePicker.title = @"Selecione uma cidade:";
     //self.flatDatePicker.datePickerMode = FlatDatePickerModeTime;
-    self.flatDatePicker.datePickerMode = FlatDatePickerModeDate;
+    self.flatDatePicker.datePickerMode = FlatDatePickerModeCity;
     //self.flatDatePicker.datePickerMode = FlatDatePickerModeDateAndTime;
 }
 

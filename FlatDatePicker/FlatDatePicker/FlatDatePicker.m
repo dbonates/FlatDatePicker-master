@@ -56,6 +56,8 @@
 #define TAG_SECONDS 6
 #define TAG_DATES 7
 
+#define TAG_CITIES 8
+
 @interface FlatDatePicker ()
 
 - (void)setupControl;
@@ -137,6 +139,20 @@
     return self;
 }
 
+-(id)initWithParentView:(UIView*)parentView  andCities:(NSArray *)cities{
+    
+    _parentView = parentView;
+    _cidades = cities;
+    
+    if ([self initWithFrame:CGRectMake(0.0, _parentView.frame.size.height, _parentView.frame.size.width, kFlatDatePickerHeight)]) {
+        _datePickerMode = FlatDatePickerModeDate;
+        [_parentView addSubview:self];
+        [self setupControl];
+    }
+    return self;
+}
+
+
 -(id)initWithParentView:(UIView*)parentView {
     
     _parentView = parentView;
@@ -161,6 +177,7 @@
     [self removeSelectorHours];
     [self removeSelectorMinutes];
     [self removeSelectorSeconds];
+    [self removeSelectorCities];
 
     // Default parameters :
     self.calendar = [NSCalendar currentCalendar];
@@ -202,9 +219,23 @@
         [self buildSelectorHoursOffsetX:(kFlatDatePickerScrollViewDateWidth + kFlatDatePickerScrollViewLeftMargin) andWidth:(((self.frame.size.width - kFlatDatePickerScrollViewDateWidth) / 2.0) - kFlatDatePickerScrollViewLeftMargin)];
         [self buildSelectorMinutesOffsetX:(kFlatDatePickerScrollViewDateWidth + kFlatDatePickerScrollViewLeftMargin + ((self.frame.size.width - kFlatDatePickerScrollViewDateWidth) / 2.0)) andWidth:(((self.frame.size.width - kFlatDatePickerScrollViewDateWidth) / 2.0) - kFlatDatePickerScrollViewLeftMargin)];
     }
+    
+    // City Selectors :
+    if (self.datePickerMode == FlatDatePickerModeCity) {
+        NSLog(@"FlatDatePickerModeCity");
+        [self buildSelectorCitiesOffsetX:(0 + kFlatDatePickerScrollViewLeftMargin) andWidth:320];
+
+        return;
+        [self buildSelectorDaysOffsetX:0.0 andWidth:kFlatDatePickerScrollViewDaysWidth];
+        [self buildSelectorMonthsOffsetX:(0 + kFlatDatePickerScrollViewLeftMargin) andWidth:320];
+        [self buildSelectorYearsOffsetX:(_scollViewMonths.frame.origin.x + _scollViewMonths.frame.size.width + kFlatDatePickerScrollViewLeftMargin) andWidth:(self.frame.size.width - (_scollViewMonths.frame.origin.x + _scollViewMonths.frame.size.width + kFlatDatePickerScrollViewLeftMargin))];
+    }
+    
+    
 
     // Defaut Date selected :
-    [self setDate:[NSDate date] animated:NO];
+//    [self setDate:[NSDate date] animated:NO];
+    [self setCity:[_cidades objectAtIndex:1] animated:NO];
 }
 
 #pragma mark - Build Header View
@@ -234,6 +265,110 @@
     _labelTitle.textColor = kFlatDatePickerFontColorTitle;
     [self addSubview:_labelTitle];
 }
+
+
+
+
+#pragma mark - Build Selector Cities
+
+- (void)buildSelectorCitiesOffsetX:(CGFloat)x andWidth:(CGFloat)width {
+    
+    // ScrollView Months
+    
+    _scollViewMonths = [[UIScrollView alloc] initWithFrame:CGRectMake(x, kFlatDatePickerHeaderHeight + kFlatDatePickerHeaderBottomMargin, width, self.frame.size.height - kFlatDatePickerHeaderHeight - kFlatDatePickerHeaderBottomMargin)];
+    _scollViewMonths.tag = TAG_CITIES;
+    _scollViewMonths.delegate = self;
+    _scollViewMonths.backgroundColor = kFlatDatePickerBackgroundColorScrolView;
+    _scollViewMonths.showsHorizontalScrollIndicator = NO;
+    _scollViewMonths.showsVerticalScrollIndicator = NO;
+    [self addSubview:_scollViewMonths];
+    
+    _lineMonthsTop = [[UIView alloc] initWithFrame:CGRectMake(_scollViewMonths.frame.origin.x + kFlatDatePickerLineMargin, _scollViewMonths.frame.origin.y + (_scollViewMonths.frame.size.height / 2) - (kFlatDatePickerScrollViewItemHeight / 2), width - (2 * kFlatDatePickerLineMargin), kFlatDatePickerLineWidth)];
+    _lineMonthsTop.backgroundColor = kFlatDatePickerBackgroundColorLines;
+    [self addSubview:_lineMonthsTop];
+    
+    _lineDaysBottom = [[UIView alloc] initWithFrame:CGRectMake(_scollViewMonths.frame.origin.x + kFlatDatePickerLineMargin, _scollViewMonths.frame.origin.y + (_scollViewMonths.frame.size.height / 2) + (kFlatDatePickerScrollViewItemHeight / 2), width - (2 * kFlatDatePickerLineMargin), kFlatDatePickerLineWidth)];
+    _lineDaysBottom.backgroundColor = kFlatDatePickerBackgroundColorLines;
+    [self addSubview:_lineDaysBottom];
+    
+    
+    // Update ScrollView Data
+    [self buildSelectorLabelsCities];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureMonthsCaptured:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [_scollViewMonths addGestureRecognizer:singleTap];
+}
+
+- (void)buildSelectorLabelsCities {
+    
+    CGFloat offsetContentScrollView = ((self.frame.size.height - kFlatDatePickerHeaderHeight - kFlatDatePickerHeaderBottomMargin) - kFlatDatePickerScrollViewItemHeight) / 2.0;
+    
+    if (_labelsMonths != nil && _labelsMonths.count > 0) {
+        for (UILabel *label in _labelsMonths) {
+            [label removeFromSuperview];
+        }
+    }
+    
+    _labelsMonths = [[NSMutableArray alloc] init];
+    
+    
+    for (int i = 0; i < _cidades.count; i++) {
+        
+        UILabel *labelDay = [[UILabel alloc] initWithFrame:CGRectMake(0.0, (i * kFlatDatePickerScrollViewItemHeight) + offsetContentScrollView, _scollViewMonths.frame.size.width, kFlatDatePickerScrollViewItemHeight)];
+        
+        labelDay.text = [_cidades objectAtIndex:i];
+        
+        
+        
+        labelDay.font = kFlatDatePickerFontLabel;
+        labelDay.textAlignment = NSTextAlignmentCenter;
+        labelDay.textColor = kFlatDatePickerFontColorLabel;
+        labelDay.backgroundColor = [UIColor clearColor];
+        
+        [_labelsMonths addObject:labelDay];
+        [_scollViewMonths addSubview:labelDay];
+    }
+    
+    _scollViewMonths.contentSize = CGSizeMake(_scollViewMonths.frame.size.width, (kFlatDatePickerScrollViewItemHeight * _cidades.count) + (offsetContentScrollView * 2));
+}
+
+- (void)removeSelectorCities {
+    
+    if (_scollViewMonths != nil) {
+        [_scollViewMonths removeFromSuperview];
+        _scollViewMonths = nil;
+    }
+    if (_lineMonthsTop != nil) {
+        [_lineMonthsTop removeFromSuperview];
+        _lineMonthsTop = nil;
+    }
+    if (_lineMonthsBottom != nil) {
+        [_lineMonthsBottom removeFromSuperview];
+        _lineMonthsBottom = nil;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma mark - Build Selector Days
 
@@ -359,7 +494,6 @@
     int count = 0;
     
     for (int i = 0; i < _months.count; i++) {
-        NSString *day = (NSString*)[_months objectAtIndex:i];
         
         UILabel *labelDay = [[UILabel alloc] initWithFrame:CGRectMake(0.0, (i * kFlatDatePickerScrollViewItemHeight) + offsetContentScrollView, _scollViewMonths.frame.size.width, kFlatDatePickerScrollViewItemHeight)];
         
@@ -1229,6 +1363,7 @@
     
     [self updateSelectedDateAtIndex:index forScrollView:scrollView];
 
+//    NSLog(@"scrollView.tag: %d", scrollView.tag);
     if (scrollView.tag == TAG_DAYS) {
         [self highlightLabelInArray:_labelsDays atIndex:index];
     } else if (scrollView.tag == TAG_MONTHS) {
@@ -1243,6 +1378,8 @@
         [self highlightLabelInArray:_labelsSeconds atIndex:index];
     } else if (scrollView.tag == TAG_DATES) {
         [self highlightLabelInArray:_labelsDates atIndex:index];
+    }else if (scrollView.tag == TAG_CITIES) {
+        [self highlightLabelInArray:_labelsMonths atIndex:index];
     }
 }
 
@@ -1350,6 +1487,7 @@
         }
         
         if (self.delegate != nil && [self.delegate respondsToSelector:@selector(flatDatePicker:dateDidChange:)]) {
+            NSLog(@"cidade selecionada: %@", [self getCity]);
             [self.delegate flatDatePicker:self dateDidChange:[self getDate]];
         }
     }
@@ -1359,7 +1497,7 @@
     
     if (labels != nil) {
         
-        if ((index - 1) >= 0) {
+        if ((index - 1) >= 0 && index < _cidades.count) {
             UILabel *label = (UILabel*)[labels objectAtIndex:(index - 1)];
             label.textColor = kFlatDatePickerFontColorLabel;
             label.font = kFlatDatePickerFontLabel;
@@ -1369,12 +1507,25 @@
             UILabel *label = (UILabel*)[labels objectAtIndex:index];
             label.textColor = kFlatDatePickerFontColorLabelSelected;
             label.font = kFlatDatePickerFontLabelSelected;
+            _selectedCity = index;
         }
         
         if ((index + 1) < labels.count) {
             UILabel *label = (UILabel*)[labels objectAtIndex:(index + 1)];
             label.textColor = kFlatDatePickerFontColorLabel;
             label.font = kFlatDatePickerFontLabel;
+        }
+    }
+}
+
+- (void)setCity:(NSString *)city animated:(BOOL)animated
+{
+    NSLog(@"Definir cidade: %@", city);
+    if (city != nil) {
+        
+        if (self.datePickerMode == FlatDatePickerModeCity)
+        {
+            [self setScrollView:_scollViewMonths atIndex:(1) animated:animated];
         }
     }
 }
@@ -1524,6 +1675,11 @@
 - (NSDate*)getDate {
     
     return [self convertToDateDay:_selectedDay month:_selectedMonth year:_selectedYear hours:_selectedHour minutes:_selectedMinute seconds:_selectedSecond];
+}
+
+- (NSString *)getCity {
+    
+    return [_cidades objectAtIndex:_selectedCity];
 }
 
 @end
